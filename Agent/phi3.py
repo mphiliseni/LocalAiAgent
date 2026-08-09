@@ -19,45 +19,59 @@ def spinner():
             if stop_spinner:
                 break
 
-#Ask the user to enter the prompt
-user_prompt = input("Enter your prompt: ")
-full_prompt = f"{role}\n\nUser: {user_prompt}\nAssistant: "
+print("==== IT Support Assistant ===")
+print("Please type in 'Exit' to quit.\n")
 
-#start spinner
-spinner_thread = threading.Thread(target=spinner)
-spinner_thread.start()
+while True:
 
-#Send the prompt to Phi-3 via ollama
-try:
-    response = requests.post(
-        "http://localhost:11434/api/generate",
-        json={
-            "model": "Phi3",
-            "prompt": full_prompt,
-            "stream": False
-        },
-        timeout=60
-    )
-    response.raise_for_status()
+    #Ask the user to enter the prompt
+    user_prompt = input("You: ")
 
-    #Stop spinner
-    stop_spinner = True
-    spinner_thread.join()
+    #Exit condition
+    if user_prompt.lower() == "exit":
+        print("\nGoodBye!")
+        break
 
-    #clear the spinner line 
-    print("\r" + " " * 40 + "\r", end="")
+    full_prompt = f"{role}\n\nUser: {user_prompt}\nAssistant: "
 
-    #Display response 
-    print("\nSupport Response: ")
-    print(response.json()["response"])
+    #Reset spinner flag
+    stop_spinner = False
 
-#Error Handling
-except requests.exceptions.ConnectionError:
-    stop_spinner = True
-    spinner_thread.join()
-    print("\nError: Could not connect to Ollama. Make sure ollama is running.")
+    #start spinner
+    spinner_thread = threading.Thread(target=spinner)
+    spinner_thread.start()
 
-except requests.exceptions.Timeout:
-    stop_spinner = True
-    spinner_thread.join()
-    print("\nError: Request time out.")
+    #Send the prompt to Phi-3 via ollama
+    try:
+        response = requests.post(
+            "http://localhost:11434/api/generate",
+            json={
+                "model": "Phi3",
+                "prompt": full_prompt,
+                "stream": False
+            },
+            timeout=60
+        )
+        response.raise_for_status()
+
+        #Stop spinner
+        stop_spinner = True
+        spinner_thread.join()
+
+        #clear the spinner line
+        print("\r" + " " * 40 + "\r", end="")
+
+        #Display response
+        print("\nSupport Agent: ")
+        print(response.json()["response"])
+
+    #Error Handling
+    except requests.exceptions.ConnectionError:
+        stop_spinner = True
+        spinner_thread.join()
+        print("\nError: Could not connect to Ollama. Make sure ollama is running.")
+
+    except requests.exceptions.Timeout:
+        stop_spinner = True
+        spinner_thread.join()
+        print("\nError: Request time out.")
