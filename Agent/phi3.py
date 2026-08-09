@@ -32,7 +32,7 @@ while True:
         print("\nGoodBye!")
         break
 
-    full_prompt = f"{role}\n\nUser: {user_prompt}\nAssistant: "
+    full_prompt = f"{role}\n\nRespond in strictly 100 words.\n\nUser: {user_prompt}\nAssistant: "
 
     #Reset spinner flag
     stop_spinner = False
