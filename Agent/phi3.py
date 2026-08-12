@@ -11,6 +11,13 @@ role = """
     When explaining technical concepts, use simple language and step-by-step instructions.
 """
 
+#instructions
+
+instructions = """
+reply with i don't know the answer if the prompt is not IT related to avoid hullanating and keep 
+everything accurate.
+"""
+
 def spinner():
     while not stop_spinner:
         for char in "|/-\\":
