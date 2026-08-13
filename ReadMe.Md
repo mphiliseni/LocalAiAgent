@@ -37,3 +37,10 @@ Users can ask questions in natural language, and the agent provides responses ba
 ![alt text](Agent/Screenshot/Software.png)
 
 # Hardware Troubleshooting Tests
+
+![alt text](Agent/Screenshot/Hardware.png)
+
+# Out-of-Scope Tests (should respond with "I don't know")
+
+![alt text](Agent/Screenshot/Out-of-Scope.png)
+
