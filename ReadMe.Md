@@ -40,7 +40,9 @@ Users can ask questions in natural language, and the agent provides responses ba
 
 ![alt text](Agent/Screenshot/Hardware.png)
 
-# Out-of-Scope Tests (should respond with "I don't know")
+# Out-of-Scope Tests 
 
 ![alt text](Agent/Screenshot/Out-of-Scope.png)
 
+
+![alt text](<Agent/Screenshot/Screenshot 2026-08-13 at 22.24.16.png>)
