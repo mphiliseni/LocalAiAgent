@@ -27,3 +27,13 @@ Users can ask questions in natural language, and the agent provides responses ba
 - Provides quick access to IT policy information
 - Improves compliance awareness
 - Enhances employee self-service
+
+# Password Reset Policy Tests
+
+![alt text](Agent/Screenshot/Password.png)
+
+# Software Installation Tests
+
+![alt text](Agent/Screenshot/Software.png)
+
+# Hardware Troubleshooting Tests
