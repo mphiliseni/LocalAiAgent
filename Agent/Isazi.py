@@ -67,7 +67,7 @@ def spinner():
             if stop_spinner:
                 break
 
-print("==== IT Policy Help Desk ===")
+print("==== IT Policy Help Desk Agent ===")
 print("Please type in 'Exit' to quit.\n")
 
 while True:
@@ -111,7 +111,7 @@ while True:
         print("\r" + " " * 40 + "\r", end="")
 
         #Display response
-        print("\nSupport Agent: ")
+        print("\n\nHelp Desk Answer: ")
         print(response.json()["response"])
 
     #Error Handling
