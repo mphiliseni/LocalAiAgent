@@ -1,7 +1,7 @@
-# IT Policy Help Desk Agent
+# local AI-powered IT Policy Help Desk Agent
 
 ## Overview
-The IT Policy Help Desk Agent is an AI-powered assistant that helps employees quickly find answers to company IT policies, security guidelines, compliance requirements, and support procedures.
+A local AI-powered IT Policy Help Desk Agent built with Python and Ollama, running the Phi-3 model entirely on your machine.
 
 ## Features
 - Password Policy Assistance
