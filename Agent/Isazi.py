@@ -1,22 +1,39 @@
 import requests
 import threading
 import time
+import os
 
 stop_spinner = False
 
+# Load IT Policy from file
+policy_file_path = os.path.join(os.path.dirname(__file__), 'IT_Policy.txt')
+try:
+    with open(policy_file_path, 'r') as f:
+        it_policy = f.read()
+except FileNotFoundError:
+    it_policy = "IT Policy file not found."
+
 #Define role
 role = """
-    You are a helpful IT support Assistant.
-    You provide clear, professional, and concise technical support answers
+    You are a helpful IT Policy Desk for CONTOSO CORPORATION.
+    You provide clear, professional, and concise technical support answers.
     When explaining technical concepts, use simple language and step-by-step instructions.
+    IMPORTANT: You must follow and reference the IT policies provided below when answering questions.
 """
 
 #instructions
+instructions = f"""
+You must follow CONTOSO CORPORATION IT policies strictly. Here are the official policies:
 
-instructions = """
-reply with i don't know the answer if the prompt is not IT related to avoid hullanating and keep 
-everything accurate.
-"""
+{it_policy}
+
+Guidelines:
+- For password reset requests: Reference the password reset policy process
+- For software installation requests: Reference the software installation approval process
+- For hardware issues: Reference the hardware troubleshooting guide
+- Only recommend approved software or escalate to IT helpdesk for custom software
+- If the prompt is not related to IT assistance or beyond the scope of these policies, reply with "I don't know."
+"""  
 
 def spinner():
     while not stop_spinner:
@@ -26,7 +43,7 @@ def spinner():
             if stop_spinner:
                 break
 
-print("==== IT Support Assistant ===")
+print("==== IT Policy Desk ===")
 print("Please type in 'Exit' to quit.\n")
 
 while True:
@@ -57,6 +74,7 @@ while True:
                 "prompt": full_prompt,
                 "stream": False
             },
+            
             timeout=60
         )
         response.raise_for_status()
