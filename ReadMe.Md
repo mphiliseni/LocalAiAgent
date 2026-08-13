@@ -1,13 +1,29 @@
-# Local AI Agent — IT Support Assistant
+# IT Policy Help Desk Agent
 
-A local AI-powered IT support assistant built with Python and [Ollama](https://ollama.com), running the Phi-3 model entirely on your machine.
+## Overview
+The IT Policy Help Desk Agent is an AI-powered assistant that helps employees quickly find answers to company IT policies, security guidelines, compliance requirements, and support procedures.
 
 ## Features
-- Answers IT support questions using a local LLM (no internet required)
-- Spinner animation while the model is thinking
-- Error handling for connection and timeout issues
+- Password Policy Assistance
+- Security and Compliance Guidance
+- Software Installation Policies
+- Remote Work and VPN Support
+- Email Security Best Practices
+- Acceptable Use Policy Information
+- Incident Reporting Guidance
 
-## Requirements
-- [Ollama](https://ollama.com) installed and running
-- Phi-3 model pulled: `ollama pull phi3`
-- Python 3.10+
+## How It Works
+Users can ask questions in natural language, and the agent provides responses based on approved IT policy documentation.
+
+### Example Questions
+- What is the company password policy?
+- Can I install software on my company laptop?
+- Do I need VPN access when working remotely?
+- How do I report a security incident?
+- Can I use my personal device for work?
+
+## Benefits
+- Reduces Help Desk workload
+- Provides quick access to IT policy information
+- Improves compliance awareness
+- Enhances employee self-service
