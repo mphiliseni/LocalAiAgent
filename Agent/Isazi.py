@@ -67,7 +67,7 @@ def spinner():
             if stop_spinner:
                 break
 
-print("==== IT Policy Desk ===")
+print("==== IT Policy Help Desk ===")
 print("Please type in 'Exit' to quit.\n")
 
 while True:
